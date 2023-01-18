@@ -1,5 +1,6 @@
 import { useState, ChangeEvent } from 'react'
 import './App.css'
+import TodoTasks from './components/TodoTasks'
 import { ITask } from './interfaces'
 
 function App() {
@@ -26,12 +27,16 @@ function App() {
     <div className="App">
       <div className="header">
         <div className="input-container">
-          <input type="text" placeholder='Task' value={task} name='task' onChange={handleChange} />
+          <input type="text" placeholder='Enter Task' value={task} name='task' onChange={handleChange} />
           <input type="number" placeholder='Deadline' value={deadline} name='deadline' onChange={handleChange} />
         </div>
-        <button>Add Task</button>
+        <button onClick={addTask}>Add Task</button>
       </div>
-      <div className="todo-list"></div>
+      <div className="todo-list">
+        {todoList.map((task: ITask, key: number) => {
+          return <TodoTasks key={key} task={task} />
+        })}
+      </div>
     </div>
   )
 }
