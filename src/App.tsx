@@ -18,14 +18,16 @@ function App() {
   function addTask(): void {
     const newTask = { taskName: task, deadline: deadline}
     setTodoList([...todoList, newTask])
+    setTask('')
+    setDeadline(0)
   }
 
   return (
     <div className="App">
       <div className="header">
         <div className="input-container">
-          <input type="text" placeholder='Task' name='task' onChange={handleChange} />
-          <input type="number" placeholder='Deadline' name='deadline' onChange={handleChange} />
+          <input type="text" placeholder='Task' value={task} name='task' onChange={handleChange} />
+          <input type="number" placeholder='Deadline' value={deadline} name='deadline' onChange={handleChange} />
         </div>
         <button>Add Task</button>
       </div>
