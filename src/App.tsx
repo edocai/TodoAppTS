@@ -1,9 +1,11 @@
 import { useState, ChangeEvent } from 'react'
 import './App.css'
+import { ITask } from './interfaces'
 
 function App() {
   const [task, setTask] = useState<string>("")
   const [deadline, setDeadline] = useState<number>(0)
+  const [todoList, setTodoList] = useState<ITask[]>([])
 
   function handleChange(event: ChangeEvent<HTMLInputElement>): void {
     if(event.target.name === "task") {
