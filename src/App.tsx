@@ -15,6 +15,11 @@ function App() {
     }
   }
 
+  function addTask(): void {
+    const newTask = { taskName: task, deadline: deadline}
+    setTodoList([...todoList, newTask])
+  }
+
   return (
     <div className="App">
       <div className="header">
